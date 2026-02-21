@@ -1,0 +1,16 @@
+<?php
+/**
+ * Database and project path - copy to config.php and set your values
+ * apiPath: URL prefix for project root (e.g. /lineUps1). Used for video/thumbnail links.
+ */
+return [
+    'db' => [
+        'host'     => 'localhost',
+        'port'     => 3306,
+        'dbname'   => 'lineup',
+        'charset'  => 'utf8mb4',
+        'username' => 'root',
+        'password' => '',
+    ],
+    'apiPath' => '/lineUps1',
+];

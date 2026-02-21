@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TacLineup — Valorant & CS2 Tactical Lineups</title>
+  <meta name="description"
+    content="Premium tactical lineup and position guide for competitive Valorant and CS2 players. Master smoke, flash, molly, and recon setups." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="uiStyles.css" />
+</head>
+
+<body>
+
+  <!-- ───────── TOP NAVIGATION ───────── -->
+  <nav id="topnav">
+    <div class="nav-left">
+      <a href="#" class="logo" id="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Tac<span class="accent">Lineup</span></span>
+      </a>
+      <div class="game-tabs" id="gameTabs">
+        <!-- Navbar kategorileri (type=navbar) index.js ile doldurulur -->
+      </div>
+    </div>
+    <div class="nav-right">
+      <div class="search-box" id="searchBox">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search agent, map, utility…" autocomplete="off" />
+        <kbd class="search-kbd">/</kbd>
+      </div>
+      <button class="icon-btn" id="favNavBtn" title="Favorites">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </button>
+      <button class="icon-btn profile-btn" id="profileBtn" title="Profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ───────── MAIN WRAPPER ───────── -->
+  <div class="app-wrapper">
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside id="sidebar" aria-label="Filtreler">
+      <div class="sidebar-header">
+        <h3>Filters</h3>
+        <button class="clear-btn" id="clearFilters">Clear all</button>
+      </div>
+      <div id="sidebarFilterGroups">
+        <!-- game_content kategorileri index.js ile gruplu olarak doldurulur -->
+      </div>
+    </aside>
+
+    <!-- ─── CONTENT + FOOTER ─── -->
+    <div class="main-and-footer">
+    <main id="mainContent">
+
+      <!-- GRID VIEW -->
+      <section id="gridView">
+        <div class="content-header">
+          <h1 id="contentTitle">Lineups</h1>
+          <p class="result-count" id="resultCount">0 lineups found</p>
+        </div>
+        <div class="lineup-grid" id="lineupGrid">
+          <!-- Kartlar index.js ile doldurulur -->
+        </div>
+      </section>
+
+      <!-- DETAIL VIEW -->
+      <section id="detailView" class="hidden">
+        <button class="back-btn" id="backBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          Back to lineups
+        </button>
+
+        <div class="detail-layout">
+          <div class="detail-media">
+            <div class="media-placeholder" id="detailMedia">
+              <video id="detailVideo" controls playsinline preload="metadata" class="detail-video"></video>
+              <div id="detailYoutubeWrap" class="detail-youtube-wrap hidden" aria-hidden="true">
+                <iframe id="detailYoutubeIframe" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div class="play-overlay" id="detailPlayOverlay">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+              </div>
+              <img id="detailImage" src="" alt="Lineup preview" class="detail-poster visible" />
+            </div>
+            <div class="video-extra-controls" id="videoExtraControls">
+              <label class="video-control-label">
+                <span>Oynatma hızı</span>
+                <select id="videoSpeedSelect" class="video-control-select" aria-label="Oynatma hızı">
+                  <option value="0.25">0.25x</option>
+                  <option value="0.5">0.5x</option>
+                  <option value="0.75">0.75x</option>
+                  <option value="1" selected>1x</option>
+                  <option value="1.25">1.25x</option>
+                  <option value="1.5">1.5x</option>
+                  <option value="1.75">1.75x</option>
+                  <option value="2">2x</option>
+                </select>
+              </label>
+            </div>
+            <div class="related-videos" id="relatedVideosSection">
+              <h3 class="related-videos-title">İlgili lineuplar</h3>
+              <div class="related-videos-grid" id="relatedVideosGrid"></div>
+            </div>
+            <div class="step-thumbnails" id="stepThumbnails">
+              <!-- Adım küçük resimleri isteğe bağlı -->
+            </div>
+          </div>
+
+          <div class="detail-info">
+            <div class="detail-badges" id="detailBadges">
+              <span class="badge difficulty-badge">—</span>
+            </div>
+            <h2 id="detailTitle">Lineup Title</h2>
+            <p class="detail-desc" id="detailDesc">Description.</p>
+
+            <div class="detail-meta">
+              <div class="meta-item">
+                <span class="meta-label">Map</span>
+                <span class="meta-value" id="detailMap">—</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Agent / Utility</span>
+                <span class="meta-value" id="detailAgent">—</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Categories</span>
+                <span class="meta-value" id="detailCategories">—</span>
+              </div>
+            </div>
+
+            <div class="detail-steps" id="detailSteps">
+              <h3>Instructions</h3>
+              <div id="detailStepsContent"></div>
+            </div>
+
+            <div class="minimap-container">
+              <h3>Position on Map</h3>
+              <div class="minimap" id="minimap">
+                <div class="minimap-dot"></div>
+              </div>
+            </div>
+
+            <div class="detail-actions">
+              <button class="action-btn primary-action" id="copyLinkBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+                Copy Link
+              </button>
+              <button class="action-btn fav-action" id="favBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                Save to Favorites
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer (footer.html — admin hariç tüm frontend sayfalarında) -->
+    <div id="siteFooterContainer"></div>
+    </div>
+  </div>
+
+  <!-- MOBILE SIDEBAR TOGGLE -->
+  <button class="mobile-filter-toggle" id="mobileFilterToggle">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="4" y1="21" x2="4" y2="14" />
+      <line x1="4" y1="10" x2="4" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12" y2="3" />
+      <line x1="20" y1="21" x2="20" y2="16" />
+      <line x1="20" y1="12" x2="20" y2="3" />
+      <line x1="1" y1="14" x2="7" y2="14" />
+      <line x1="9" y1="8" x2="15" y2="8" />
+      <line x1="17" y1="16" x2="23" y2="16" />
+    </svg>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied!</div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+# Repo içinde hep LF kullan; push/pull ile satır sonları değişmesin
+* text=auto eol=lf
+
+# Binary dosyaları dönüştürme (resim, video, font)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp4 binary
+*.webm binary
+*.woff binary
+*.woff2 binary
